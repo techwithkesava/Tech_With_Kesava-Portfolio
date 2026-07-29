@@ -17,6 +17,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://techwithkesava.vercel.app"),
   title: {
     default: "TechWithKesava — AI Engineer & Tech Educator",
     template: "%s | TechWithKesava",
@@ -55,6 +56,9 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+  verification: {
+    google: "YOUR_GOOGLE_SITE_VERIFICATION_CODE_HERE",
   },
 };
 

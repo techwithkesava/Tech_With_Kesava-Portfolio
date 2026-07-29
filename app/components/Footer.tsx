@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Github, Linkedin, Youtube, Instagram, Mail, ArrowUpRight } from "lucide-react";
 
+import Image from "next/image";
+
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
@@ -47,9 +49,13 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-accent-blue to-accent-purple flex items-center justify-center text-white font-display font-bold text-xs">
-                K
-              </div>
+              <Image
+                src="/logo.png"
+                alt="TechWithKesava Logo"
+                width={28}
+                height={28}
+                className="w-7 h-7 rounded-lg object-contain"
+              />
               <span className="font-display text-sm font-semibold text-white">
                 TechWithKesava
               </span>

@@ -5,6 +5,8 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
+import Image from "next/image";
+
 const links = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
@@ -45,9 +47,13 @@ export default function Navbar() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-8 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-blue to-accent-purple flex items-center justify-center text-white font-display font-bold text-sm">
-              K
-            </div>
+            <Image
+              src="/logo.png"
+              alt="TechWithKesava Logo"
+              width={32}
+              height={32}
+              className="w-8 h-8 rounded-lg object-contain"
+            />
             <span className="font-display text-base font-semibold text-white tracking-tight">
               TechWithKesava
             </span>
