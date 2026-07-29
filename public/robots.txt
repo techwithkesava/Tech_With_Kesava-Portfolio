@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://techwithkesava.vercel.app/sitemap.xml
