@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Map, Brain, Code2, BarChart3, Shield, ArrowRight, CheckCircle, Circle } from "lucide-react";
+import { Brain, Code2, BarChart3, Shield, ArrowRight, CheckCircle, Circle } from "lucide-react";
 import GlassCard from "../components/GlassCard";
 
 const roadmaps = [

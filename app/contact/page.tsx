@@ -50,10 +50,10 @@ function ContactForm() {
         const errorData = await response.json();
         throw new Error(errorData.error || "Failed to submit.");
       }
-    } catch (err: any) {
+    } catch (err) {
       console.error(err);
       setStatus("error");
-      setErrorMessage(err.message || "An unexpected error occurred. Please try again.");
+      setErrorMessage(err instanceof Error ? err.message : "An unexpected error occurred. Please try again.");
     }
   };
 

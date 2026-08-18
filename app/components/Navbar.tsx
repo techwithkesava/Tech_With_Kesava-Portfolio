@@ -15,6 +15,7 @@ const links = [
   { label: "Tutorials", href: "/tutorials" },
   { label: "Roadmaps", href: "/roadmaps" },
   { label: "Blog", href: "/blog" },
+  { label: "AI Tools", href: "/ai-tools" },
 ];
 
 export default function Navbar() {

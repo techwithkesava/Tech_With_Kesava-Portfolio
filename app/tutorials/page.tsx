@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { Play, BookOpen, Code2, Brain, Shield, Zap, ArrowRight, Clock, ExternalLink } from "lucide-react";
 import GlassCard from "../components/GlassCard";
 import SectionHeader from "../components/SectionHeader";

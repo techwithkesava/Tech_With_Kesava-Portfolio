@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import CertificationCard from "../components/CertificationCard";
-import SectionHeader from "../components/SectionHeader";
 
 const certifications = [
   {
