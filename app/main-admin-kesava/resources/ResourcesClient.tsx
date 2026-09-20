@@ -377,12 +377,47 @@ export default function ResourcesClient({
                   />
                 </div>
                 <div>
-                  <label className="text-xs font-semibold text-[#9ca3af]">Thumbnail URL</label>
-                  <input
-                    name="thumbnail_url"
-                    defaultValue={selectedResource?.thumbnail_url || ""}
-                    className="mt-1 w-full rounded-lg border border-white/10 bg-[#05060a] p-2 text-sm text-white focus:outline-none focus:border-[#FF6B2C]"
-                  />
+                  <label className="text-xs font-semibold text-[#9ca3af]">Thumbnail Image</label>
+                  <div className="mt-1 flex items-center gap-2">
+                    <input
+                      id="res_thumbnail_url"
+                      name="thumbnail_url"
+                      defaultValue={selectedResource?.thumbnail_url || ""}
+                      placeholder="https://... or upload"
+                      className="w-full rounded-lg border border-white/10 bg-[#05060a] p-2 text-sm text-white focus:outline-none focus:border-[#FF6B2C]"
+                    />
+                    <label className="flex-shrink-0 cursor-pointer rounded-lg border border-[#FF6B2C]/40 bg-[#FF6B2C]/10 px-3 py-2 text-xs font-semibold text-[#FF6B2C] hover:bg-[#FF6B2C] hover:text-white transition-colors">
+                      Upload
+                      <input
+                        type="file"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={async (e) => {
+                          const file = e.target.files?.[0];
+                          if (!file) return;
+                          const fd = new FormData();
+                          fd.append("file", file);
+                          fd.append("bucket", "resources");
+                          try {
+                            const res = await fetch("/api/admin/upload", {
+                              method: "POST",
+                              body: fd,
+                            });
+                            const data = await res.json();
+                            if (data.url) {
+                              const input = document.getElementById("res_thumbnail_url") as HTMLInputElement;
+                              if (input) input.value = data.url;
+                            } else {
+                              alert(data.error || "Upload failed");
+                            }
+                          } catch (err) {
+                            console.error(err);
+                            alert("Upload error");
+                          }
+                        }}
+                      />
+                    </label>
+                  </div>
                 </div>
               </div>
 
@@ -501,12 +536,47 @@ export default function ResourcesClient({
                   />
                 </div>
                 <div>
-                  <label className="text-xs font-semibold text-[#9ca3af]">Thumbnail URL</label>
-                  <input
-                    name="thumbnail_url"
-                    defaultValue={editingItem?.thumbnail_url || ""}
-                    className="mt-1 w-full rounded-lg border border-white/10 bg-[#05060a] p-2 text-sm text-white focus:outline-none focus:border-[#FF6B2C]"
-                  />
+                  <label className="text-xs font-semibold text-[#9ca3af]">Thumbnail Image</label>
+                  <div className="mt-1 flex items-center gap-2">
+                    <input
+                      id="item_thumbnail_url"
+                      name="thumbnail_url"
+                      defaultValue={editingItem?.thumbnail_url || ""}
+                      placeholder="https://... or upload"
+                      className="w-full rounded-lg border border-white/10 bg-[#05060a] p-2 text-sm text-white focus:outline-none focus:border-[#FF6B2C]"
+                    />
+                    <label className="flex-shrink-0 cursor-pointer rounded-lg border border-[#FF6B2C]/40 bg-[#FF6B2C]/10 px-3 py-2 text-xs font-semibold text-[#FF6B2C] hover:bg-[#FF6B2C] hover:text-white transition-colors">
+                      Upload
+                      <input
+                        type="file"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={async (e) => {
+                          const file = e.target.files?.[0];
+                          if (!file) return;
+                          const fd = new FormData();
+                          fd.append("file", file);
+                          fd.append("bucket", "resources");
+                          try {
+                            const res = await fetch("/api/admin/upload", {
+                              method: "POST",
+                              body: fd,
+                            });
+                            const data = await res.json();
+                            if (data.url) {
+                              const input = document.getElementById("item_thumbnail_url") as HTMLInputElement;
+                              if (input) input.value = data.url;
+                            } else {
+                              alert(data.error || "Upload failed");
+                            }
+                          } catch (err) {
+                            console.error(err);
+                            alert("Upload error");
+                          }
+                        }}
+                      />
+                    </label>
+                  </div>
                 </div>
               </div>
 
