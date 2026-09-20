@@ -34,6 +34,10 @@ export default function Navbar() {
     setOpen(false);
   }, [pathname]);
 
+  if (pathname.startsWith("/main-admin-kesava")) {
+    return null;
+  }
+
   return (
     <>
       <motion.nav

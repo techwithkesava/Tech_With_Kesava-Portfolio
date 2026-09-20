@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Github, Linkedin, Youtube, Instagram, Mail, ArrowUpRight } from "lucide-react";
 
 import Image from "next/image";
@@ -28,6 +29,12 @@ const socials = [
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/main-admin-kesava")) {
+    return null;
+  }
+
   return (
     <footer className="relative border-t border-[#272A33] bg-[#08090D]">
       {/* Gradient divider */}
