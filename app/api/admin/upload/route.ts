@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
       });
 
     // If bucket doesn't exist yet in Supabase, auto-create it dynamically
-    if (uploadError && (uploadError.message.includes("not found") || (uploadError as any).statusCode === "404")) {
+    if (uploadError && (uploadError.message.includes("not found") || ('statusCode' in uploadError && (uploadError as { statusCode?: string }).statusCode === "404"))) {
       await supabase.storage.createBucket(bucket, {
         public: true,
         fileSizeLimit: 10485760,
