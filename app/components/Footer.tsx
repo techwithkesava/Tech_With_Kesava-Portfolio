@@ -29,7 +29,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-[rgba(255,255,255,0.06)]">
+    <footer className="relative border-t border-[#272A33] bg-[#08090D]">
       {/* Gradient divider */}
       <div className="gradient-divider" />
 
@@ -75,7 +75,7 @@ export default function Footer() {
                 <li key={l.label}>
                   <Link
                     href={l.href}
-                    className="text-sm text-text-secondary hover:text-white transition-colors"
+                    className="text-sm text-text-secondary hover:text-[#FF6B2C] transition-colors"
                   >
                     {l.label}
                   </Link>
@@ -94,7 +94,7 @@ export default function Footer() {
                 <li key={l.label}>
                   <Link
                     href={l.href}
-                    className="text-sm text-text-secondary hover:text-white transition-colors"
+                    className="text-sm text-text-secondary hover:text-[#FF6B2C] transition-colors"
                   >
                     {l.label}
                   </Link>
@@ -115,7 +115,7 @@ export default function Footer() {
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-text-secondary hover:text-accent-blue transition-colors inline-flex items-center gap-1.5"
+                    className="text-sm text-text-secondary hover:text-[#FF6B2C] transition-colors inline-flex items-center gap-1.5"
                   >
                     <s.icon className="w-3.5 h-3.5" />
                     {s.label}
@@ -127,7 +127,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-[rgba(255,255,255,0.06)] py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="border-t border-[#272A33] py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-text-muted">
             © {new Date().getFullYear()} TechWithKesava. All rights reserved.
           </p>
@@ -135,7 +135,7 @@ export default function Footer() {
             href="https://github.com/kesavakantipudi"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs text-text-muted hover:text-text-secondary transition-colors inline-flex items-center gap-1"
+            className="text-xs text-text-muted hover:text-[#FF6B2C] transition-colors inline-flex items-center gap-1"
           >
             Built with precision <ArrowUpRight className="w-3 h-3" />
           </a>

@@ -26,7 +26,7 @@ export default function CertificationCard({
     "IT Specialist": "from-[#6366f1] to-[#4f46e5]",
   };
 
-  const gradient = categoryColors[category] || "from-accent-blue to-accent-purple";
+  const gradient = categoryColors[category] || "from-[#FF6B2C] to-[#8B5CF6]";
 
   return (
     <motion.div
@@ -38,7 +38,7 @@ export default function CertificationCard({
     >
       <div className="flex items-start gap-4">
         {image ? (
-          <div className="w-12 h-12 rounded-xl overflow-hidden bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
+          <div className="w-12 h-12 rounded-xl overflow-hidden bg-[#0D0F14] border border-[#272A33] flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
             <img
               src={image}
               alt={`${title} badge`}

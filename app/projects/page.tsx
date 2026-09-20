@@ -158,7 +158,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* Projects Grid */}
-      <section className="section border-t border-[rgba(255,255,255,0.06)]">
+      <section className="section bg-[#08090D] border-t border-[#272A33]">
         <div className="section-container">
           <div className="grid lg:grid-cols-2 gap-6">
             {projects.map((p, i) => (
@@ -169,10 +169,10 @@ export default function ProjectsPage() {
       </section>
 
       {/* GitHub CTA */}
-      <section className="section border-t border-[rgba(255,255,255,0.06)]">
+      <section className="section bg-[#0D0F14]/60 border-t border-[#272A33]">
         <div className="section-container text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <p className="text-text-muted text-sm uppercase tracking-widest mb-3">
+            <p className="text-[#FF6B2C] text-sm uppercase tracking-widest mb-3 font-semibold">
               37 repositories and counting
             </p>
             <h2 className="section-heading text-2xl mb-4">

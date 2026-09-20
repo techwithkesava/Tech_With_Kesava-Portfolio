@@ -64,7 +64,7 @@ export default function AiToolsPageClient({
         </div>
       </section>
 
-      <section className="section border-t border-[rgba(255,255,255,0.06)]">
+      <section className="section bg-[#08090D] border-t border-[#272A33]">
         <div className="section-container">
           {/* Search + filter bar */}
           <div className="flex flex-col md:flex-row md:items-center gap-4 mb-10">
@@ -75,7 +75,7 @@ export default function AiToolsPageClient({
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search tools, tags…"
-                className="w-full bg-white/[0.03] border border-[rgba(255,255,255,0.1)] rounded-xl pl-10 pr-9 py-2.5 text-sm text-white placeholder:text-text-muted outline-none transition-colors focus:border-accent-blue/50"
+                className="w-full bg-[#0D0F14] border border-[#272A33] rounded-xl pl-10 pr-9 py-2.5 text-sm text-white placeholder:text-text-muted outline-none transition-colors focus:border-[#FF6B2C] focus:ring-1 focus:ring-[#FF6B2C]"
               />
               {query && (
                 <button
@@ -95,8 +95,8 @@ export default function AiToolsPageClient({
                   onClick={() => setCategory(cat)}
                   className={`px-3.5 py-1.5 text-xs font-medium rounded-full border transition-colors ${
                     category === cat
-                      ? "text-white border-accent-blue/40 bg-accent-blue/10"
-                      : "text-text-muted border-[rgba(255,255,255,0.1)] hover:text-white hover:border-white/25"
+                      ? "text-[#FF6B2C] border-[#FF6B2C]/40 bg-[#FF6B2C]/10"
+                      : "text-text-muted border-[#272A33] hover:text-white hover:border-white/25"
                   }`}
                 >
                   {cat}
@@ -120,13 +120,13 @@ export default function AiToolsPageClient({
                   transition={{ duration: 0.5, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
                   className="card card-gradient-border group"
                 >
-                  <div className="h-[2px] bg-gradient-to-r from-accent-blue via-accent-purple to-transparent" />
+                  <div className="h-[2px] bg-gradient-to-r from-[#FF6B2C] via-[#8B5CF6] to-[#3B82F6]" />
 
                   <div className="p-6 md:p-8">
                     <div className="flex items-start justify-between gap-3 mb-4">
                       <div className="flex items-center gap-3">
                         {tool.imageUrl ? (
-                          <div className="w-12 h-12 rounded-xl overflow-hidden bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
+                          <div className="w-12 h-12 rounded-xl overflow-hidden bg-[#0D0F14] border border-[#272A33] flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
                             <img
                               src={tool.imageUrl}
                               alt={`${tool.name} logo`}
@@ -134,7 +134,7 @@ export default function AiToolsPageClient({
                             />
                           </div>
                         ) : (
-                          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-blue to-accent-purple flex items-center justify-center flex-shrink-0">
+                          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#FF6B2C] to-[#8B5CF6] flex items-center justify-center flex-shrink-0">
                             <Sparkles className="w-5 h-5 text-white" />
                           </div>
                         )}

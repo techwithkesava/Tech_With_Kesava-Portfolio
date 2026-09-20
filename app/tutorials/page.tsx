@@ -58,8 +58,8 @@ export default function TutorialsPage() {
         </div>
       </section>
 
-      {categories.map((cat) => (
-        <section key={cat.title} className="section border-t border-[rgba(255,255,255,0.06)]">
+      {categories.map((cat, idx) => (
+        <section key={cat.title} className={`section border-t border-[#272A33] ${idx % 2 === 0 ? "bg-[#0D0F14]/60" : "bg-[#08090D]"}`}>
           <div className="section-container">
             <SectionHeader label={cat.title} heading={cat.description} align="left" />
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -67,17 +67,19 @@ export default function TutorialsPage() {
                 <GlassCard key={tut.title} delay={i * 0.08}>
                   <div className="flex items-start justify-between mb-3">
                     <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${cat.color} flex items-center justify-center`}>
-                      <Play className="w-4 h-4 text-white" />
+                      <Play className="w-4 h-4 text-white fill-white" />
                     </div>
-                    <span className="text-[11px] font-medium text-text-muted uppercase tracking-wider px-2 py-0.5 rounded-full border border-[rgba(255,255,255,0.08)]">
+                    <span className="text-[11px] font-medium text-text-muted uppercase tracking-wider px-2 py-0.5 rounded-full border border-[#272A33] bg-[#0D0F14]">
                       {tut.level}
                     </span>
                   </div>
                   <h3 className="font-display text-base font-semibold text-white mb-2 leading-tight">{tut.title}</h3>
                   <div className="flex items-center gap-3 text-xs text-text-muted">
-                    <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{tut.duration}</span>
+                    <span className="flex items-center gap-1"><Clock className="w-3 h-3 text-[#FF6B2C]" />{tut.duration}</span>
                   </div>
-                  <a href="#" className="btn-ghost mt-4 text-xs">Watch Tutorial <ArrowRight className="w-3 h-3" /></a>
+                  <a href="https://www.youtube.com/channel/UC7KDLruKwCaq2LGelUVcUMA" target="_blank" rel="noopener noreferrer" className="btn-ghost mt-4 text-xs">
+                    Watch Tutorial <ArrowRight className="w-3 h-3" />
+                  </a>
                 </GlassCard>
               ))}
             </div>
@@ -85,15 +87,17 @@ export default function TutorialsPage() {
         </section>
       ))}
 
-      <section className="section">
+      <section className="section bg-[#08090D] border-t border-[#272A33]">
         <div className="section-container text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <BookOpen className="w-8 h-8 text-accent-blue mx-auto mb-4" />
+            <BookOpen className="w-8 h-8 text-[#FF6B2C] mx-auto mb-4" />
             <h2 className="section-heading text-2xl mb-4">More tutorials coming every week</h2>
             <p className="text-text-secondary max-w-md mx-auto mb-6">
               Subscribe to TechWithKesava on YouTube for new tutorials, deep dives, and project walkthroughs.
             </p>
-            <a href="#" className="btn-primary inline-flex">Subscribe on YouTube <ExternalLink className="w-4 h-4" /></a>
+            <a href="https://www.youtube.com/channel/UC7KDLruKwCaq2LGelUVcUMA" target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex">
+              Subscribe on YouTube <ExternalLink className="w-4 h-4" />
+            </a>
           </motion.div>
         </div>
       </section>

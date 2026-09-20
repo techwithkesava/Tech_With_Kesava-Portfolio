@@ -4,25 +4,32 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        brand: {
+          orange: "#FF6B2C",
+          "orange-hover": "#FF4F1F",
+        },
         bg: {
-          primary: "#000000",
-          elevated: "#0a0a0a",
-          surface: "#111111",
-          glass: "rgba(17,17,17,0.6)",
+          primary: "#08090D",
+          elevated: "#0D0F14",
+          surface: "#13161D",
+          hover: "#1A1E27",
+          glass: "rgba(19, 22, 29, 0.75)",
         },
         border: {
-          DEFAULT: "rgba(255,255,255,0.08)",
-          hover: "rgba(255,255,255,0.15)",
+          DEFAULT: "#272A33",
+          subtle: "#1F222A",
+          hover: "rgba(255, 107, 44, 0.4)",
         },
         text: {
-          primary: "#fafafa",
-          secondary: "#a1a1aa",
-          muted: "#52525b",
+          primary: "#F8FAFC",
+          secondary: "#A1A1AA",
+          muted: "#71717A",
         },
         accent: {
-          blue: "#3b82f6",
-          purple: "#8b5cf6",
-          glow: "rgba(59,130,246,0.15)",
+          orange: "#FF6B2C",
+          purple: "#8B5CF6",
+          blue: "#3B82F6",
+          glow: "rgba(255, 107, 44, 0.15)",
         },
       },
       fontFamily: {
@@ -47,8 +54,8 @@ module.exports = {
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         glowPulse: {
-          "0%, 100%": { boxShadow: "0 0 20px rgba(59,130,246,0.1)" },
-          "50%": { boxShadow: "0 0 40px rgba(59,130,246,0.25)" },
+          "0%, 100%": { boxShadow: "0 0 20px rgba(255, 107, 44, 0.1)" },
+          "50%": { boxShadow: "0 0 40px rgba(255, 107, 44, 0.25)" },
         },
         marquee: {
           "0%": { transform: "translateX(0%)" },

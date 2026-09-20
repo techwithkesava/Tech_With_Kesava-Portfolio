@@ -5,11 +5,11 @@ import { Mail, Github, Linkedin, Youtube, Instagram, MapPin, Send, ArrowUpRight,
 import GlassCard from "../components/GlassCard";
 
 const socials = [
-  { icon: Github, label: "GitHub", handle: "@kesavakantipudi", href: "https://github.com/kesavakantipudi", color: "hover:text-white" },
+  { icon: Github, label: "GitHub", handle: "@kesavakantipudi", href: "https://github.com/kesavakantipudi", color: "hover:text-[#FF6B2C]" },
   { icon: Linkedin, label: "LinkedIn", handle: "Kesava Kantipudi", href: "https://linkedin.com/in/kesavakantipudi", color: "hover:text-[#0a66c2]" },
   { icon: Youtube, label: "YouTube", handle: "TechWithKesava", href: "https://www.youtube.com/channel/UC7KDLruKwCaq2LGelUVcUMA", color: "hover:text-[#ff0000]" },
   { icon: Instagram, label: "Instagram", handle: "@tech_with_kesava", href: "https://www.instagram.com/tech_with_kesava/", color: "hover:text-[#e4405f]" },
-  { icon: Mail, label: "Email", handle: "techwithkesava@gmail.com", href: "mailto:techwithkesava@gmail.com", color: "hover:text-accent-blue" },
+  { icon: Mail, label: "Email", handle: "techwithkesava@gmail.com", href: "mailto:techwithkesava@gmail.com", color: "hover:text-[#FF6B2C]" },
 ];
 
 function ContactForm() {
@@ -19,6 +19,7 @@ function ContactForm() {
     subject: "",
     message: "",
   });
+
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -27,6 +28,7 @@ function ContactForm() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.subject || !formData.message) {
@@ -176,7 +178,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="section border-t border-[rgba(255,255,255,0.06)]">
+      <section className="section bg-[#08090D] border-t border-[#272A33]">
         <div className="section-container">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form Container */}
@@ -199,7 +201,7 @@ export default function ContactPage() {
                     <a href={s.href} target="_blank" rel="noopener noreferrer"
                       className={`flex items-center justify-between group transition-colors ${s.color}`}>
                       <div className="flex items-center gap-4">
-                        <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-[rgba(255,255,255,0.08)] flex items-center justify-center">
+                        <div className="w-10 h-10 rounded-xl bg-[#0D0F14] border border-[#272A33] flex items-center justify-center">
                           <s.icon className="w-4.5 h-4.5" />
                         </div>
                         <div>

@@ -29,15 +29,15 @@ export default function ProjectCard({
       className="card card-gradient-border group"
     >
       {/* Gradient top border accent */}
-      <div className="h-[2px] bg-gradient-to-r from-accent-blue via-accent-purple to-transparent" />
+      <div className="h-[2px] bg-gradient-to-r from-[#FF6B2C] via-[#8B5CF6] to-[#3B82F6]" />
 
       <div className="p-6 md:p-8">
         <div className="flex items-start justify-between mb-4">
           <div>
-            <span className="text-xs text-text-muted font-medium uppercase tracking-wider">
+            <span className="text-xs text-[#FF6B2C] font-semibold uppercase tracking-wider">
               Project {String(index + 1).padStart(2, "0")}
             </span>
-            <h3 className="font-display text-xl md:text-2xl font-bold text-white mt-1">
+            <h3 className="font-display text-xl md:text-2xl font-bold text-white mt-1 group-hover:text-white transition-colors">
               {title}
             </h3>
           </div>
@@ -45,7 +45,7 @@ export default function ProjectCard({
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 rounded-xl border border-[rgba(255,255,255,0.08)] flex items-center justify-center text-text-muted group-hover:text-accent-blue group-hover:border-accent-blue/30 transition-all"
+            className="w-10 h-10 rounded-xl border border-[#272A33] bg-[#0D0F14] flex items-center justify-center text-text-muted group-hover:text-[#FF6B2C] group-hover:border-[#FF6B2C]/40 group-hover:bg-[#FF6B2C]/10 transition-all"
           >
             <ArrowUpRight className="w-4 h-4" />
           </a>
@@ -63,7 +63,7 @@ export default function ProjectCard({
                 key={f}
                 className="text-xs text-text-secondary flex items-center gap-2"
               >
-                <span className="w-1 h-1 rounded-full bg-accent-blue flex-shrink-0" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B2C] flex-shrink-0" />
                 {f}
               </li>
             ))}

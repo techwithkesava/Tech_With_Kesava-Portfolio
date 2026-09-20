@@ -91,7 +91,7 @@ export default function VideosSection({
 
   return (
     <>
-      <section className="section border-t border-[rgba(255,255,255,0.06)]">
+      <section className="section bg-[#08090D] border-t border-[#272A33]">
         <div className="section-container">
           <SectionHeader
             label="Videos"
@@ -117,9 +117,9 @@ export default function VideosSection({
                     alt={video.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
-                  <div className="absolute inset-0 bg-black/35 transition-colors duration-300 group-hover:bg-black/20" />
+                  <div className="absolute inset-0 bg-black/40 transition-colors duration-300 group-hover:bg-black/25" />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-blue to-accent-purple flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow-lg shadow-accent-glow">
+                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#FF6B2C] to-[#FF4F1F] flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow-lg shadow-[#FF6B2C]/30">
                       <Play className="w-6 h-6 text-white fill-white ml-0.5" />
                     </div>
                   </div>
@@ -127,7 +127,7 @@ export default function VideosSection({
 
                 <div className="p-5">
                   <div className="flex items-center gap-2 mb-2 flex-wrap">
-                    <span className="text-[11px] font-medium text-accent-blue bg-accent-blue/5 border border-accent-blue/20 rounded-full px-2 py-0.5">
+                    <span className="text-[11px] font-medium text-[#FF6B2C] bg-[#FF6B2C]/10 border border-[#FF6B2C]/20 rounded-full px-2 py-0.5">
                       {video.category}
                     </span>
                     {video.featured && (

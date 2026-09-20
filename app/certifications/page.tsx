@@ -7,43 +7,43 @@ const certifications = [
     title: "Power Platform Developer Associate",
     issuer: "Microsoft",
     category: "Microsoft",
-    image: "/images/certifications/microsoft-power-platform-developer.png"
+    image: "/images/certifications/microsoft-certified-associate-badge.svg"
   },
   {
     title: "Power Platform Solution Architect Expert",
     issuer: "Microsoft",
     category: "Microsoft",
-    image: "/images/certifications/microsoft-power-platform-architect.png"
+    image: "/images/certifications/microsoft-certified-expert-badge.svg"
   },
   {
     title: "AWS Certified AI Practitioner",
     issuer: "Amazon Web Services",
     category: "AWS",
-    image: "/images/certifications/aws-ai-practitioner.png"
+    image: "/images/certifications/aws-certified-ai-practitioner.png"
   },
   {
     title: "Java Foundations Associate",
     issuer: "Oracle",
     category: "Oracle",
-    image: "/images/certifications/java-foundations.png"
+    image: "/images/certifications/Java Foundation Associate badge.jpg"
   },
   {
     title: "Database Foundations Associate",
     issuer: "Oracle",
     category: "Oracle",
-    image: "/images/certifications/database-foundations.png"
+    image: "/images/certifications/Oracle database badge.jpg"
   },
   {
     title: "SnowPro Associate Platform",
     issuer: "Snowflake",
     category: "Snowflake",
-    image: "/images/certifications/snowpro-core.png"
+    image: "/images/certifications/SnowPro.png"
   },
   {
     title: "IT Specialist — HTML & CSS",
     issuer: "Certiport / Pearson",
     category: "IT Specialist",
-    image: "/images/certifications/it-specialist-html-css.png"
+    image: "/images/certifications/it-specialist-html-and-css.png"
   },
 ];
 
@@ -79,7 +79,7 @@ export default function CertificationsPage() {
       </section>
 
       {/* Category Overview */}
-      <section className="py-8 px-6 border-t border-[rgba(255,255,255,0.06)]">
+      <section className="py-8 px-6 border-t border-[#272A33] bg-[#0D0F14]/60">
         <div className="section-container">
           <div className="flex flex-wrap items-center justify-center gap-3">
             {categories.map((cat, i) => (
@@ -88,7 +88,7 @@ export default function CertificationsPage() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.05 }}
-                className="flex items-center gap-2 px-4 py-2 rounded-full border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)]"
+                className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#272A33] bg-[#13161D]"
               >
                 <div className={`w-2.5 h-2.5 rounded-full bg-gradient-to-r ${cat.color}`} />
                 <span className="text-sm text-text-secondary">{cat.name}</span>
@@ -100,7 +100,7 @@ export default function CertificationsPage() {
       </section>
 
       {/* Certifications Grid */}
-      <section className="section">
+      <section className="section bg-[#08090D]">
         <div className="section-container">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {certifications.map((cert, i) => (

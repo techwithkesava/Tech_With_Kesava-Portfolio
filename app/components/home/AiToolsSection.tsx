@@ -14,7 +14,7 @@ export default function AiToolsSection({
   if (tools.length === 0) return null;
 
   return (
-    <section className="section border-t border-[rgba(255,255,255,0.06)]">
+    <section className="section bg-[#0D0F14]/60 border-t border-[#272A33]">
       <div className="section-container">
         <SectionHeader
           label="AI Tools"
@@ -33,13 +33,13 @@ export default function AiToolsSection({
               className="card card-gradient-border group"
             >
               {/* Gradient top border accent */}
-              <div className="h-[2px] bg-gradient-to-r from-accent-blue via-accent-purple to-transparent" />
+              <div className="h-[2px] bg-gradient-to-r from-[#FF6B2C] via-[#8B5CF6] to-[#3B82F6]" />
 
               <div className="p-6 md:p-8">
                 <div className="flex items-start justify-between gap-3 mb-4">
                   <div className="flex items-center gap-3">
                     {tool.imageUrl ? (
-                      <div className="w-12 h-12 rounded-xl overflow-hidden bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
+                      <div className="w-12 h-12 rounded-xl overflow-hidden bg-[#0D0F14] border border-[#272A33] flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
                         <img
                           src={tool.imageUrl}
                           alt={`${tool.name} logo`}
@@ -47,7 +47,7 @@ export default function AiToolsSection({
                         />
                       </div>
                     ) : (
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-blue to-accent-purple flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#FF6B2C] to-[#8B5CF6] flex items-center justify-center flex-shrink-0">
                         <Sparkles className="w-5 h-5 text-white" />
                       </div>
                     )}

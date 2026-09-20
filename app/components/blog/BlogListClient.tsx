@@ -6,7 +6,7 @@ import GlassCard from "../GlassCard";
 import type { PublicBlog } from "@/lib/data/blogs";
 
 const categoryColors: Record<string, string> = {
-  "AI Engineering": "text-accent-blue border-accent-blue/20 bg-accent-blue/5",
+  "AI Engineering": "text-[#FF6B2C] border-[#FF6B2C]/20 bg-[#FF6B2C]/5",
   "AI Safety": "text-red-400 border-red-400/20 bg-red-400/5",
   Certifications: "text-emerald-400 border-emerald-400/20 bg-emerald-400/5",
   Backend: "text-amber-400 border-amber-400/20 bg-amber-400/5",
@@ -19,7 +19,7 @@ export default function BlogListClient({ posts }: { posts: PublicBlog[] }) {
 
   if (posts.length === 0) {
     return (
-      <section className="section">
+      <section className="section bg-[#08090D]">
         <div className="section-container">
           <p className="text-center text-text-secondary">
             No articles published yet. Check back soon.
@@ -46,13 +46,13 @@ export default function BlogListClient({ posts }: { posts: PublicBlog[] }) {
       </section>
 
       {/* Featured Post */}
-      <section className="section border-t border-[rgba(255,255,255,0.06)] pt-12">
+      <section className="section border-t border-[#272A33] pt-12 bg-[#0D0F14]/50">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="glass-card card-gradient-border p-8 md:p-12 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-accent-blue/[0.04] rounded-full blur-[80px]" />
+            <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-[#FF6B2C]/[0.05] rounded-full blur-[80px]" />
             <div className="relative z-10">
-              <span className="text-[11px] font-semibold uppercase tracking-wider text-accent-blue bg-accent-blue/10 border border-accent-blue/20 rounded-full px-3 py-1">
+              <span className="text-[11px] font-semibold uppercase tracking-wider text-[#FF6B2C] bg-[#FF6B2C]/10 border border-[#FF6B2C]/20 rounded-full px-3 py-1">
                 Featured
               </span>
               <h2 className="font-display text-2xl md:text-3xl font-bold text-white mt-4 mb-3">{featured.title}</h2>

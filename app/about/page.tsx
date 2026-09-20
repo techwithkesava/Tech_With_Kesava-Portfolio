@@ -106,7 +106,7 @@ export default function AboutPage() {
       </section>
 
       {/* ════════════════ PROFESSIONAL SUMMARY ════════════════ */}
-      <section className="section border-t border-[rgba(255,255,255,0.06)]">
+      <section className="section bg-[#0D0F14]/60 border-t border-[#272A33]">
         <div className="section-container">
           <div className="grid md:grid-cols-5 gap-12 items-start">
             <motion.div
@@ -142,13 +142,13 @@ export default function AboutPage() {
 
             <div className="md:col-span-2 grid grid-cols-2 gap-4">
               <GlassCard delay={0}>
-                <AnimatedCounter end={800} suffix="+" label="Problems Solved" />
+                <AnimatedCounter end={1000} suffix="+" label="Problems Solved" />
               </GlassCard>
               <GlassCard delay={0.1}>
                 <AnimatedCounter end={7} suffix="" label="Certifications" />
               </GlassCard>
               <GlassCard delay={0.2}>
-                <AnimatedCounter end={19} suffix="+" label="AI Projects" />
+                <AnimatedCounter end={30} suffix="+" label="AI Projects" />
               </GlassCard>
               <GlassCard delay={0.3}>
                 <div className="text-center">
@@ -162,7 +162,7 @@ export default function AboutPage() {
       </section>
 
       {/* ════════════════ TIMELINE ════════════════ */}
-      <section className="section border-t border-[rgba(255,255,255,0.06)]">
+      <section className="section bg-[#08090D] border-t border-[#272A33]">
         <div className="section-container">
           <div className="grid md:grid-cols-2 gap-16">
             {/* Education */}
@@ -205,7 +205,7 @@ export default function AboutPage() {
                       key={item}
                       className="text-sm text-text-secondary flex items-start gap-2"
                     >
-                      <span className="w-1 h-1 rounded-full bg-accent-blue mt-2 flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B2C] mt-2 flex-shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -217,7 +217,7 @@ export default function AboutPage() {
       </section>
 
       {/* ════════════════ SKILLS ════════════════ */}
-      <section className="section border-t border-[rgba(255,255,255,0.06)]">
+      <section className="section bg-[#0D0F14]/60 border-t border-[#272A33]">
         <div className="section-container">
           <SectionHeader
             label="Technical Skills"
@@ -228,7 +228,7 @@ export default function AboutPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {skillCategories.map((cat, i) => (
               <GlassCard key={cat.title} delay={i * 0.06}>
-                <cat.icon className="w-6 h-6 text-accent-blue mb-3" />
+                <cat.icon className="w-6 h-6 text-[#FF6B2C] mb-3" />
                 <h3 className="font-display text-base font-semibold text-white mb-3">
                   {cat.title}
                 </h3>
@@ -244,7 +244,7 @@ export default function AboutPage() {
       </section>
 
       {/* ════════════════ ACHIEVEMENTS ════════════════ */}
-      <section className="section border-t border-[rgba(255,255,255,0.06)]">
+      <section className="section bg-[#08090D] border-t border-[#272A33]">
         <div className="section-container">
           <SectionHeader
             label="Achievements"
@@ -255,7 +255,7 @@ export default function AboutPage() {
             {[
               {
                 icon: Target,
-                title: "800+ Coding Problems",
+                title: "1000+ Coding Problems",
                 desc: "Consistently solving algorithmic challenges across platforms.",
               },
               {
@@ -275,7 +275,7 @@ export default function AboutPage() {
               },
             ].map((item, i) => (
               <GlassCard key={item.title} delay={i * 0.08}>
-                <item.icon className="w-7 h-7 text-accent-blue mb-3" />
+                <item.icon className="w-7 h-7 text-[#FF6B2C] mb-3" />
                 <h3 className="font-display text-base font-semibold text-white mb-2">
                   {item.title}
                 </h3>

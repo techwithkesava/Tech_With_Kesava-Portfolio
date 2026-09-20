@@ -1,6 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
+import heroImg from "@/images/hero.png";
 import {
   ArrowRight,
   Sparkles,
@@ -80,10 +82,10 @@ const projects = [
 ];
 
 const certifications = [
-  { title: "Power Platform Developer Associate", issuer: "Microsoft", category: "Microsoft", image: "/images/certifications/microsoft-power-platform-developer.png" },
-  { title: "Power Platform Solution Architect Expert", issuer: "Microsoft", category: "Microsoft", image: "/images/certifications/microsoft-power-platform-architect.png" },
-  { title: "AWS Certified AI Practitioner", issuer: "Amazon Web Services", category: "AWS", image: "/images/certifications/aws-ai-practitioner.png" },
-  { title: "Java Foundations Associate", issuer: "Oracle", category: "Oracle", image: "/images/certifications/java-foundations.png" },
+  { title: "Power Platform Developer Associate", issuer: "Microsoft", category: "Microsoft", image: "/images/certifications/microsoft-certified-associate-badge.svg" },
+  { title: "Power Platform Solution Architect Expert", issuer: "Microsoft", category: "Microsoft", image: "/images/certifications/microsoft-certified-expert-badge.svg" },
+  { title: "AWS Certified AI Practitioner", issuer: "Amazon Web Services", category: "AWS", image: "/images/certifications/aws-certified-ai-practitioner.png" },
+  { title: "Java Foundations Associate", issuer: "Oracle", category: "Oracle", image: "/images/certifications/Java Foundation Associate badge.jpg" },
 ];
 
 export default function HomeContent({
@@ -96,82 +98,118 @@ export default function HomeContent({
   return (
     <>
       {/* ════════════════ HERO ════════════════ */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden">
+      <section className="relative min-h-[calc(100vh-80px)] lg:min-h-screen flex items-center justify-center px-6 pt-28 pb-12 lg:py-20 overflow-hidden bg-[#08090D]">
         {/* Grid background */}
-        <div className="absolute inset-0 grid-pattern opacity-40" />
+        <div className="absolute inset-0 grid-pattern opacity-30 pointer-events-none" />
 
-        {/* Ambient orbs */}
-        <div className="pointer-events-none absolute top-[10%] left-[15%] w-[500px] h-[500px] rounded-full bg-accent-blue/[0.04] blur-[100px]" />
-        <div className="pointer-events-none absolute bottom-[10%] right-[15%] w-[400px] h-[400px] rounded-full bg-accent-purple/[0.05] blur-[100px]" />
+        {/* Ambient radial glows behind subject and background */}
+        <div
+          className="pointer-events-none absolute inset-0 z-0"
+          style={{
+            background:
+              "radial-gradient(circle at 75% 45%, rgba(255, 107, 44, 0.10), transparent 30%), radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.07), transparent 30%), radial-gradient(circle at 70% 60%, rgba(59, 130, 246, 0.05), transparent 30%), radial-gradient(circle at 20% 30%, rgba(255, 107, 44, 0.08), transparent 35%)",
+          }}
+        />
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="relative z-10 max-w-4xl mx-auto"
-        >
-          {/* Role badges */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="flex flex-wrap items-center justify-center gap-2 mb-8"
-          >
-            {roles.map((role) => (
-              <span
-                key={role}
-                className="tech-badge text-[11px]"
+        <div className="relative z-10 max-w-[1340px] w-full mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[580px]">
+            
+            {/* LEFT CONTENT (Approx 52-55% -> 7 cols) */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start"
+            >
+              {/* Role badges */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.15, duration: 0.6 }}
+                className="flex flex-wrap items-center justify-center lg:justify-start gap-2 mb-6"
               >
-                {role}
-              </span>
-            ))}
-          </motion.div>
+                {roles.map((role) => (
+                  <span
+                    key={role}
+                    className="tech-badge text-[11px]"
+                  >
+                    {role}
+                  </span>
+                ))}
+              </motion.div>
 
-          <h1 className="hero-heading mb-6">
-            Building AI.{" "}
-            <span className="gradient-text">Teaching Tech.</span>
-            <br />
-            Sharing Knowledge.
-          </h1>
+              {/* Heading */}
+              <h1 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl leading-[1.1] tracking-tight text-[#F8FAFC] mb-6">
+                Building AI.{" "}
+                <span className="gradient-text">Teaching Tech.</span>
+                <br />
+                Sharing Knowledge.
+              </h1>
 
-          <p className="max-w-2xl mx-auto text-sm sm:text-base md:text-lg text-text-secondary leading-relaxed mb-8 sm:mb-10">
-            AI Engineer specializing in building production-grade intelligence systems
-            using LLMs, RAG, and machine learning. Microsoft Certified Professional
-            turning complex AI into practical solutions.
-          </p>
+              {/* Description */}
+              <p className="text-sm sm:text-base md:text-lg text-text-secondary leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
+                AI Engineer specializing in building production-grade intelligence systems
+                using LLMs, RAG, and machine learning. Microsoft Certified Professional
+                turning complex AI into practical solutions.
+              </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
-            <Link href="/projects" className="btn-primary w-full sm:w-auto">
-              View Projects <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link href="/tutorials" className="btn-outline w-full sm:w-auto">
-              <BookOpen className="w-4 h-4" /> Watch Tutorials
-            </Link>
-            <Link href="/contact" className="btn-outline w-full sm:w-auto">
-              Contact Me
-            </Link>
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 w-full sm:w-auto">
+                <Link href="/projects" className="btn-primary w-full sm:w-auto">
+                  View Projects <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link href="/tutorials" className="btn-outline w-full sm:w-auto">
+                  <BookOpen className="w-4 h-4" /> Watch Tutorials
+                </Link>
+                <Link href="/contact" className="btn-outline w-full sm:w-auto">
+                  Contact Me
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* RIGHT IMAGE (Approx 45-48% -> 5 cols - NO CARD, NO BORDER, SEAMLESS INTEGRATION) */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-5 flex justify-center lg:justify-end items-end mt-6 lg:mt-0"
+            >
+              <div className="relative w-full max-w-[340px] sm:max-w-[420px] lg:max-w-[480px] xl:max-w-[530px] flex justify-center lg:justify-end">
+                {/* Soft glow highlight behind the subject */}
+                <div className="absolute inset-0 -z-10 bg-radial from-[#FF6B2C]/15 via-[#8B5CF6]/08 to-transparent blur-3xl rounded-full scale-110 pointer-events-none" />
+
+                <Image
+                  src={heroImg}
+                  alt="Kesava Kantipudi - Tech With Kesava"
+                  priority
+                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 420px, 530px"
+                  className="w-full h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] [mask-image:radial-gradient(ellipse_at_center,_black_70%,_transparent_100%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,_black_70%,_transparent_100%)]"
+                />
+              </div>
+            </motion.div>
+
           </div>
-        </motion.div>
+        </div>
 
         {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          className="hidden md:block absolute bottom-4 left-1/2 -translate-x-1/2"
         >
-          <div className="w-5 h-8 rounded-full border border-[rgba(255,255,255,0.15)] flex justify-center pt-1.5">
+          <div className="w-5 h-8 rounded-full border border-[#272A33] flex justify-center pt-1.5 bg-[#0D0F14]">
             <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ repeat: Infinity, duration: 1.5 }}
-              className="w-1 h-1 rounded-full bg-accent-blue"
+              className="w-1 h-1 rounded-full bg-[#FF6B2C]"
             />
           </div>
         </motion.div>
       </section>
 
       {/* ════════════════ ABOUT PREVIEW ════════════════ */}
-      <section className="section border-t border-[rgba(255,255,255,0.06)]">
+      <section className="section bg-[#0D0F14]/60 border-t border-[#272A33]">
         <div className="section-container">
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             {/* Text */}
@@ -204,13 +242,13 @@ export default function HomeContent({
             {/* Stats */}
             <div className="grid grid-cols-2 gap-6">
               <GlassCard delay={0}>
-                <AnimatedCounter end={800} suffix="+" label="Problems Solved" />
+                <AnimatedCounter end={1000} suffix="+" label="Problems Solved" />
               </GlassCard>
               <GlassCard delay={0.1}>
                 <AnimatedCounter end={7} suffix="" label="Certifications" />
               </GlassCard>
               <GlassCard delay={0.2}>
-                <AnimatedCounter end={19} suffix="+" label="AI Projects" />
+                <AnimatedCounter end={30} suffix="+" label="AI Projects" />
               </GlassCard>
               <GlassCard delay={0.3}>
                 <AnimatedCounter end={8} label="Tech Stacks" duration={1.5} />
@@ -221,7 +259,7 @@ export default function HomeContent({
       </section>
 
       {/* ════════════════ FEATURED PROJECTS ════════════════ */}
-      <section className="section border-t border-[rgba(255,255,255,0.06)]">
+      <section className="section bg-[#08090D] border-t border-[#272A33]">
         <div className="section-container">
           <SectionHeader
             label="Featured Work"
@@ -244,14 +282,14 @@ export default function HomeContent({
       </section>
 
       {/* ════════════════ SKILLS MARQUEE ════════════════ */}
-      <section className="py-16 border-t border-b border-[rgba(255,255,255,0.06)] overflow-hidden">
+      <section className="py-12 bg-[#0D0F14] border-t border-b border-[#272A33] overflow-hidden">
         <div className="marquee-track">
           {[...skills, ...skills].map((skill, i) => (
             <span
               key={`${skill}-${i}`}
               className="text-sm font-medium text-text-muted whitespace-nowrap flex items-center gap-2"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-accent-blue/40" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B2C]/50" />
               {skill}
             </span>
           ))}
@@ -259,7 +297,7 @@ export default function HomeContent({
       </section>
 
       {/* ════════════════ CERTIFICATIONS PREVIEW ════════════════ */}
-      <section className="section">
+      <section className="section bg-[#08090D]">
         <div className="section-container">
           <SectionHeader
             label="Certifications"
@@ -273,7 +311,6 @@ export default function HomeContent({
             ))}
           </div>
 
-
           <div className="text-center mt-10">
             <Link href="/certifications" className="btn-outline">
               View All Certifications <ArrowRight className="w-4 h-4" />
@@ -283,7 +320,7 @@ export default function HomeContent({
       </section>
 
       {/* ════════════════ WHAT I DO ════════════════ */}
-      <section className="section border-t border-[rgba(255,255,255,0.06)]">
+      <section className="section bg-[#0D0F14]/60 border-t border-[#272A33]">
         <div className="section-container">
           <SectionHeader
             label="Expertise"
@@ -325,7 +362,7 @@ export default function HomeContent({
               },
             ].map((item, i) => (
               <GlassCard key={item.title} delay={i * 0.08}>
-                <item.icon className="w-8 h-8 text-accent-blue mb-4" />
+                <item.icon className="w-8 h-8 text-[#FF6B2C] mb-4" />
                 <h3 className="font-display text-lg font-semibold text-white mb-2">
                   {item.title}
                 </h3>
@@ -345,25 +382,23 @@ export default function HomeContent({
       <VideosSection videos={videos} />
 
       {/* ════════════════ CTA ════════════════ */}
-      <section className="section">
+      <section className="section bg-[#08090D]">
         <div className="section-container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative overflow-hidden rounded-2xl p-10 md:p-16 text-center"
+            className="relative overflow-hidden rounded-2xl p-10 md:p-16 text-center bg-[#13161D]"
             style={{
-              background:
-                "linear-gradient(135deg, rgba(59,130,246,0.12), rgba(139,92,246,0.12))",
-              border: "1px solid rgba(59,130,246,0.15)",
+              border: "1px solid #272A33",
             }}
           >
             {/* Ambient glow */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-accent-blue/[0.08] rounded-full blur-[80px]" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#FF6B2C]/[0.08] rounded-full blur-[80px]" />
 
             <div className="relative z-10">
-              <Sparkles className="w-8 h-8 text-accent-blue mx-auto mb-4" />
+              <Sparkles className="w-8 h-8 text-[#FF6B2C] mx-auto mb-4" />
               <h2 className="section-heading mb-4">
                 Let&apos;s build something{" "}
                 <span className="gradient-text">extraordinary</span>

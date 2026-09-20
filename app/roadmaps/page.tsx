@@ -5,7 +5,7 @@ import GlassCard from "../components/GlassCard";
 
 const roadmaps = [
   {
-    icon: Brain, title: "AI Engineer Roadmap", color: "from-accent-blue to-accent-purple",
+    icon: Brain, title: "AI Engineer Roadmap", color: "from-[#FF6B2C] to-[#8B5CF6]",
     description: "A structured path from Python fundamentals to building production AI systems.",
     steps: ["Python & Math Foundations", "ML Algorithms & Scikit-Learn", "Deep Learning & Neural Networks", "NLP & Transformers", "LLMs, RAG & Embeddings", "Production AI & MLOps"],
     status: "active",
@@ -47,13 +47,13 @@ export default function RoadmapsPage() {
         </div>
       </section>
 
-      <section className="section border-t border-[rgba(255,255,255,0.06)]">
+      <section className="section bg-[#08090D] border-t border-[#272A33]">
         <div className="section-container">
           <div className="grid md:grid-cols-2 gap-6">
             {roadmaps.map((rm, i) => (
               <GlassCard key={rm.title} delay={i * 0.1} className="relative">
                 {rm.status === "coming-soon" && (
-                  <div className="absolute top-4 right-4 text-[10px] font-semibold uppercase tracking-wider text-accent-purple bg-accent-purple/10 border border-accent-purple/20 rounded-full px-3 py-1">
+                  <div className="absolute top-4 right-4 text-[10px] font-semibold uppercase tracking-wider text-[#8B5CF6] bg-[#8B5CF6]/10 border border-[#8B5CF6]/20 rounded-full px-3 py-1">
                     Coming Soon
                   </div>
                 )}
@@ -66,7 +66,7 @@ export default function RoadmapsPage() {
                   {rm.steps.map((step, si) => (
                     <div key={step} className="flex items-center gap-3">
                       {rm.status === "active" && si < 2 ? (
-                        <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                        <CheckCircle className="w-4 h-4 text-[#FF6B2C] flex-shrink-0" />
                       ) : (
                         <Circle className="w-4 h-4 text-text-muted flex-shrink-0" />
                       )}
