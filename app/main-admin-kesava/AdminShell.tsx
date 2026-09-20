@@ -7,6 +7,7 @@ import {
   Wrench,
   Video,
   FileText,
+  FolderKanban,
   LogOut,
   ExternalLink,
   ShieldCheck,
@@ -15,6 +16,7 @@ import { logout } from "./actions/auth";
 
 const nav = [
   { href: "/main-admin-kesava/dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/main-admin-kesava/resources", label: "Resources", icon: FolderKanban },
   { href: "/main-admin-kesava/ai-tools", label: "AI Tools", icon: Wrench },
   { href: "/main-admin-kesava/videos", label: "Videos", icon: Video },
   { href: "/main-admin-kesava/blogs", label: "Blogs", icon: FileText },

@@ -13,6 +13,7 @@ import {
   Zap,
   BookOpen,
   ExternalLink,
+  Layers,
 } from "lucide-react";
 import SectionHeader from "../SectionHeader";
 import GlassCard from "../GlassCard";
@@ -21,8 +22,10 @@ import ProjectCard from "../ProjectCard";
 import CertificationCard from "../CertificationCard";
 import AiToolsSection from "./AiToolsSection";
 import VideosSection from "./VideosSection";
+import ResourceCard from "../resources/ResourceCard";
 import type { PublicAiTool } from "@/lib/data/ai-tools";
 import type { PublicVideo } from "@/lib/data/videos";
+import type { PublicResource } from "@/lib/data/resources";
 
 const roles = [
   "AI Engineer",
@@ -91,9 +94,11 @@ const certifications = [
 export default function HomeContent({
   aiTools,
   videos,
+  resources = [],
 }: {
   aiTools: PublicAiTool[];
   videos: PublicVideo[];
+  resources?: PublicResource[];
 }) {
   return (
     <>
@@ -107,27 +112,30 @@ export default function HomeContent({
           className="pointer-events-none absolute inset-0 z-0"
           style={{
             background:
-              "radial-gradient(circle at 75% 45%, rgba(255, 107, 44, 0.10), transparent 30%), radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.07), transparent 30%), radial-gradient(circle at 70% 60%, rgba(59, 130, 246, 0.05), transparent 30%), radial-gradient(circle at 20% 30%, rgba(255, 107, 44, 0.08), transparent 35%)",
+              "radial-gradient(circle at 75% 45%, rgba(255, 107, 44, 0.12), transparent 35%), radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08), transparent 35%), radial-gradient(circle at 70% 60%, rgba(59, 130, 246, 0.06), transparent 35%), radial-gradient(circle at 20% 30%, rgba(255, 107, 44, 0.08), transparent 35%)",
           }}
         />
 
         <div className="relative z-10 max-w-[1340px] w-full mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[580px]">
             
-            {/* LEFT CONTENT (Approx 52-55% -> 7 cols) */}
+            {/* LEFT CONTENT (Approx 55% -> 7 cols) */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               className="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start"
             >
-              {/* Role badges */}
+              {/* Creator / Role badge */}
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15, duration: 0.6 }}
                 className="flex flex-wrap items-center justify-center lg:justify-start gap-2 mb-6"
               >
+                <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#FF6B2C]/10 border border-[#FF6B2C]/30 text-[#FF6B2C] flex items-center gap-1.5">
+                  <Sparkles className="w-3.5 h-3.5" /> Tech With Kesava
+                </span>
                 {roles.map((role) => (
                   <span
                     key={role}
@@ -138,7 +146,7 @@ export default function HomeContent({
                 ))}
               </motion.div>
 
-              {/* Heading */}
+              {/* Creator Headline */}
               <h1 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl leading-[1.1] tracking-tight text-[#F8FAFC] mb-6">
                 Building AI.{" "}
                 <span className="gradient-text">Teaching Tech.</span>
@@ -149,25 +157,25 @@ export default function HomeContent({
               {/* Description */}
               <p className="text-sm sm:text-base md:text-lg text-text-secondary leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
                 AI Engineer specializing in building production-grade intelligence systems
-                using LLMs, RAG, and machine learning. Microsoft Certified Professional
-                turning complex AI into practical solutions.
+                using LLMs, RAG, and machine learning. Sharing practical guides, code repositories,
+                and resources.
               </p>
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 w-full sm:w-auto">
-                <Link href="/projects" className="btn-primary w-full sm:w-auto">
+                <Link href="/resources" className="btn-primary w-full sm:w-auto">
+                  <Layers className="w-4 h-4" /> Explore Resources
+                </Link>
+                <Link href="/projects" className="btn-outline w-full sm:w-auto">
                   View Projects <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link href="/tutorials" className="btn-outline w-full sm:w-auto">
                   <BookOpen className="w-4 h-4" /> Watch Tutorials
                 </Link>
-                <Link href="/contact" className="btn-outline w-full sm:w-auto">
-                  Contact Me
-                </Link>
               </div>
             </motion.div>
 
-            {/* RIGHT IMAGE (Approx 45-48% -> 5 cols - NO CARD, NO BORDER, SEAMLESS INTEGRATION) */}
+            {/* RIGHT IMAGE (Approx 45% -> 5 cols - NO CARD, NO BORDER, SEAMLESS INTEGRATION) */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
@@ -175,15 +183,15 @@ export default function HomeContent({
               className="lg:col-span-5 flex justify-center lg:justify-end items-end mt-6 lg:mt-0"
             >
               <div className="relative w-full max-w-[340px] sm:max-w-[420px] lg:max-w-[480px] xl:max-w-[530px] flex justify-center lg:justify-end">
-                {/* Soft glow highlight behind the subject */}
-                <div className="absolute inset-0 -z-10 bg-radial from-[#FF6B2C]/15 via-[#8B5CF6]/08 to-transparent blur-3xl rounded-full scale-110 pointer-events-none" />
+                {/* Ambient glow highlight behind image */}
+                <div className="absolute inset-0 -z-10 bg-radial from-[#FF6B2C]/20 via-[#8B5CF6]/10 to-transparent blur-3xl rounded-full scale-110 pointer-events-none" />
 
                 <Image
                   src={heroImg}
                   alt="Kesava Kantipudi - Tech With Kesava"
                   priority
                   sizes="(max-width: 640px) 90vw, (max-width: 1024px) 420px, 530px"
-                  className="w-full h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] [mask-image:radial-gradient(ellipse_at_center,_black_70%,_transparent_100%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,_black_70%,_transparent_100%)]"
+                  className="w-full h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.85)] [mask-image:radial-gradient(ellipse_at_center,_black_75%,_transparent_100%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,_black_75%,_transparent_100%)]"
                 />
               </div>
             </motion.div>
@@ -258,8 +266,39 @@ export default function HomeContent({
         </div>
       </section>
 
-      {/* ════════════════ FEATURED PROJECTS ════════════════ */}
+      {/* ════════════════ HOMEPAGE RESOURCE PREVIEW ════════════════ */}
       <section className="section bg-[#08090D] border-t border-[#272A33]">
+        <div className="section-container">
+          <SectionHeader
+            label="Resource Hub"
+            heading="Everything I share, in one place."
+            description="Guides, repositories, documents, tutorials and useful tools I've created or collected."
+          />
+
+          {resources.length > 0 ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {resources.slice(0, 3).map((res) => (
+                <ResourceCard key={res.id} resource={res} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-10 rounded-xl bg-[#0F1117] border border-[#272A33] p-6 max-w-lg mx-auto">
+              <p className="text-sm text-[#A1A1AA]">
+                Explore code repositories, setup guides, and documents inside the Resource Hub.
+              </p>
+            </div>
+          )}
+
+          <div className="text-center mt-10">
+            <Link href="/resources" className="btn-primary">
+              Explore All Resources <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════ FEATURED PROJECTS ════════════════ */}
+      <section className="section bg-[#0D0F14]/60 border-t border-[#272A33]">
         <div className="section-container">
           <SectionHeader
             label="Featured Work"
