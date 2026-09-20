@@ -36,12 +36,27 @@ export async function POST(req: NextRequest) {
     const arrayBuffer = await file.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
 
-    const { error: uploadError } = await supabase.storage
+    let { error: uploadError } = await supabase.storage
       .from(bucket)
       .upload(filePath, buffer, {
         contentType: file.type,
         upsert: true,
       });
+
+    // If bucket doesn't exist yet in Supabase, auto-create it dynamically
+    if (uploadError && (uploadError.message.includes("not found") || (uploadError as any).statusCode === "404")) {
+      await supabase.storage.createBucket(bucket, {
+        public: true,
+        fileSizeLimit: 10485760,
+      });
+
+      // Retry upload after creating bucket
+      const retry = await supabase.storage.from(bucket).upload(filePath, buffer, {
+        contentType: file.type,
+        upsert: true,
+      });
+      uploadError = retry.error;
+    }
 
     if (uploadError) {
       console.error("[upload-error]", uploadError.message);
